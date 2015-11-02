@@ -1,0 +1,7 @@
+<img class="source" ng-src="{{ info.source }}">
+<p class="title">{{ info.title }}</p>
+<p class="date">{{ info.date | date }}</p>
+<div class="rating">
+<p class="location">Location:<a href=""> see on map</a></p>
+<p class="likes" ng-click="plusOne($index)"><span class="glyphicon glyphicon-thumbs-up"></span>Like {{ info.likes }}</p>
+</div>

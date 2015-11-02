@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to ImageStack</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/main.css">
+    <!--    For local use <link rel="stylesheet" href="css/bootstrap.min.css" />   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!--For local use   <script src="js/shared/angular.min.js></script>   -->
+    <!--    For local use   <script src="js/shared/bootstrap.min.js></script>   -->
+</head>
+
+<body ng-app="myApp">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">ImageStack</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="#">Albums</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main" ng-controller="MainController">
+        <div class="container">
+             <h1>Welcome to ImageStack</h1>
+             <div class="col-md-6" ng-repeat="pic in pics">
+                <div class="thumbnail">
+                   <!--<app-info info="pic"></app-info>-->
+                    <img ng-src="{{ pic.source }}">
+                    <p class="title">{{ pic.title }}</p>
+                    <p class="date">{{ pic.date | date }}</p>
+                    <div class="rating">
+                        <p class="location">Location:<a href=""> see on map</a></p>
+                        <p class="likes" ng-click="plusOne($index)"><span class="glyphicon glyphicon-thumbs-up"></span>Like {{ pic.likes }}</p>
+                    </div>
+                </div>
+             </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>Available for iPhone and Android.</h4>
+            <img src="https://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />
+            <img src="https://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />
+        </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+    <!-- Directives -->
+    <script src="js/directives/appInfo.js"></script>
+
+</body>
+</html>
